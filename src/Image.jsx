@@ -8,6 +8,10 @@ function Image() {
     const [imgArr, setImgArr] = useState([]);
     
     async function fetchData(query) {
+        if(query==''){
+            alert('Bro For Image You have to Add Some Text 😁 ')
+            return
+        }
         let fetched = await fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=${clientId}&per_page=16`);
         let data = await fetched.json();
         console.log(data.results);
